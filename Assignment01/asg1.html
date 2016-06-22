@@ -3,6 +3,7 @@
 <head>
 	<meta charset="utf-8" />
 	<script src="calculateProfitability.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 	<link rel="stylesheet" href="#" />
 </head>
 
@@ -12,7 +13,18 @@
 	<form name="calculatorForm" id="calculateProfitability" method="post">
 		<label>Profit</label>
 		<input type="text" id="profit" name="profit" value="" /> <br />
-		<input type="button" id="calculate" name="Calculate" value="Calculate" onclick="caculateProfitability();" />
+		<label>Average Number of Shares</label>
+		<input type="text" id="averageNumberOfShares" name="averageNumberOfShares" value="" /> <br />
+		<label>Price Per Share</label>
+		<input type="text" id="pricePerShare" name="pricePerShare" value="" /> <br />
+		<label>Total Assets</label>
+		<input type="text" id="totalAssets" name="totalAssets" value="" /> <br />
+		<label>Earnings Per Share</label>
+		<input type="text" id="earningsPerShare" name="earningsPerShare" value="" /> <br />
+		<label>Percentage Expected Growth</label>
+		<input type="text" id="percentageExpectedGrowth" name="percentageExpectedGrowth" value="" /> <br />
+		
+		<input type="button" id="calculate" name="Calculate" value="Calculate" onclick="calculateProfitability();" />
 	</form>
 	
 </body>
