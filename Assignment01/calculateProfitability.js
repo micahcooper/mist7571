@@ -26,7 +26,12 @@ function calculateProfitability()
 	console.log("PE Ratio: "+peRatio);
 	console.log("Price to earnings growth: "+priceToEarningsGrowth);
 	
-	outputResults(earningsPerShare, priceToBook);
+	netIncome = document.getElementById("netIncome").value;
+	bookValue = totalAssets - liabilities;
+	
+	returnOnEquity = netIncome / bookValue;
+	
+	outputResults();
 	
 }
 
@@ -35,11 +40,11 @@ function outputResults()
 	document.write("<!DOCTYPE html><html lang=\"en\"><head><meta charset=\"utf-8\" /><link rel=\"stylesheet\" href=\"style.css\" /><title>CompanyProfitability</title></head>");
 	document.write("<header><h1>Results</h1></header>");
 	document.write("<table><tr><th>Name of Field</th><th>Value</th></tr>");
-	document.write("<tr><td></td><td>"+earningsPerShare+"</td></tr>");
 	document.write("<tr><td>Earnings Per Share</td><td>"+earningsPerShare+"</td></tr>");
 	document.write("<tr><td>Price to Book</td><td>"+priceToBook+"</td></tr>");
 	document.write("<tr><td>PE Ratio</td><td>"+peRatio+"</td></tr>");
 	document.write("<tr><td>Price to earnings growth</td><td>"+priceToEarningsGrowth+"</td></tr>");
+	document.write("<tr><td>Return on equity</td><td>"+returnOnEquity+"</td></tr>");
 	document.write("</table>");
 	document.close();
 }

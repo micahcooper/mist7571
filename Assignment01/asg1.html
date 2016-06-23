@@ -3,7 +3,6 @@
 <head>
 	<meta charset="utf-8" />
 	<script src="calculateProfitability.js"></script>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 	<link rel="stylesheet" href="style.css" />
 	<title>Company Profitability</title>
 </head>
@@ -12,29 +11,32 @@
 	<header>
 		<h1>Company Profitability</h1>
 	</header>
-	
-	<form name="calculatorForm" id="calculateProfitability" method="post">
-		<label>Profit</label>
-		<input type="text" id="profit" name="profit" value="" /> <br />
-		<label>Average Number of Shares</label>
-		<input type="text" id="averageNumberOfShares" name="averageNumberOfShares" value="" /> <br />
-		
-		<label>Price Per Share</label>
-		<input type="text" id="pricePerShare" name="pricePerShare" value="" /> <br />
-		<label>Total Assets</label>
-		<input type="text" id="totalAssets" name="totalAssets" value="" /> <br />
-		<label>Intangible Assets</label>
-		<input type="text" id="intangibleAssets" name="intangibleAssets" value="" /> <br />
-		<label>Liabilities</label>
-		<input type="text" id="liabilities" name="liabilities" value="" /> <br />
-		
-		<label>Earnings Per Share</label>
-		<input type="text" id="earningsPerShare" name="earningsPerShare" value="" /> <br />
-		<label>Percentage Expected Growth</label>
-		<input type="text" id="percentageExpectedGrowth" name="percentageExpectedGrowth" value="" /> <br />
-		
-		<input type="button" id="calculate" name="Calculate" value="Calculate" onclick="calculateProfitability();" />
-	</form>
+	<section id="form">
+		<form name="calculatorForm" id="calculateProfitability" method="post">
+			<label>Profit</label>
+			<input type="text" id="profit" name="profit" value="" /> <br />
+			<label>Average Number of Shares</label>
+			<input type="text" id="averageNumberOfShares" name="averageNumberOfShares" value="" /> <br />
+			
+			<label>Price Per Share</label>
+			<input type="text" id="pricePerShare" name="pricePerShare" value="" /> <br />
+			<label>Total Assets</label>
+			<input type="text" id="totalAssets" name="totalAssets" value="" /> <br />
+			<label>Intangible Assets</label>
+			<input type="text" id="intangibleAssets" name="intangibleAssets" value="" /> <br />
+			<label>Net Income</label>
+			<input type="text" id="netIncome" name="netIncome" value="" /> <br />
+			<label>Liabilities</label>
+			<input type="text" id="liabilities" name="liabilities" value="" /> <br />
+			
+			<label>Earnings Per Share</label>
+			<input type="text" id="earningsPerShare" name="earningsPerShare" value="" /> <br />
+			<label>Percentage Expected Growth</label>
+			<input type="text" id="percentageExpectedGrowth" name="percentageExpectedGrowth" value="" /> <br />
+			
+			<input type="button" id="calculate" name="Calculate" value="Calculate" onclick="calculateProfitability();" />
+		</form>
+	</section>
 	
 </body>
 </html>

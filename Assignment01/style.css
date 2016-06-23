@@ -1,3 +1,12 @@
+section > form{
+	margin:10px;
+	width:600px;
+}
+section#form{
+	width:500px;
+	clear:both;
+}
+
 table{
 	padding:10px;
 }
