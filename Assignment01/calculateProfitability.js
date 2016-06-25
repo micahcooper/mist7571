@@ -1,3 +1,4 @@
+//function to calcuate the results based on a companies share and earnings report
 function calculateProfitability()
 {
 	console.log("starting the program");
@@ -10,7 +11,7 @@ function calculateProfitability()
 	intangibleAssets = document.getElementById("intangibleAssets").value;
 	liabilities = document.getElementById("liabilities").value;
 
-	earningsPerShare = document.getElementById("earningsPerShare").value;
+	//earningsPerShare = document.getElementById("earningsPerShare").value;
 	//peRatio = document.getElementById("peRatio");
 	percentageExpectedGrowth = document.getElementById("percentageExpectedGrowth").value;
 	
@@ -26,25 +27,28 @@ function calculateProfitability()
 	console.log("PE Ratio: "+peRatio);
 	console.log("Price to earnings growth: "+priceToEarningsGrowth);
 	
-	netIncome = document.getElementById("netIncome").value;
+	//netIncome = document.getElementById("netIncome").value;
 	bookValue = totalAssets - liabilities;
 	
-	returnOnEquity = netIncome / bookValue;
+	returnOnEquity = profit / bookValue;
 	
 	outputResults();
 	
 }
 
+//send the results to the document.write
 function outputResults()
 {
 	document.write("<!DOCTYPE html><html lang=\"en\"><head><meta charset=\"utf-8\" /><link rel=\"stylesheet\" href=\"style.css\" /><title>CompanyProfitability</title></head>");
 	document.write("<header><h1>Results</h1></header>");
 	document.write("<table><tr><th>Name of Field</th><th>Value</th></tr>");
-	document.write("<tr><td>Earnings Per Share</td><td>"+earningsPerShare+"</td></tr>");
-	document.write("<tr><td>Price to Book</td><td>"+priceToBook+"</td></tr>");
-	document.write("<tr><td>PE Ratio</td><td>"+peRatio+"</td></tr>");
-	document.write("<tr><td>Price to earnings growth</td><td>"+priceToEarningsGrowth+"</td></tr>");
-	document.write("<tr><td>Return on equity</td><td>"+returnOnEquity+"</td></tr>");
+	document.write("<tr><td>Earnings Per Share</td><td>"+earningsPerShare.toFixed(2)+"</td></tr>");
+	document.write("<tr><td>Price to Book</td><td>"+priceToBook.toFixed(2)+"</td></tr>");
+	document.write("<tr><td>PE Ratio</td><td>"+peRatio.toFixed(2)+"</td></tr>");
+	document.write("<tr><td>Price to earnings growth</td><td>"+priceToEarningsGrowth.toFixed(2)+"</td></tr>");
+	document.write("<tr><td>Return on equity</td><td>"+returnOnEquity.toFixed(2)+"</td></tr>");
 	document.write("</table>");
+	document.write("<p><a href=asg1.html>Go Back</a></p>");
+	document.write("</body></html>");
 	document.close();
 }

@@ -12,29 +12,27 @@
 		<h1>Company Profitability</h1>
 	</header>
 	<section id="form">
+		<aside><p><i>Default values are based on Panera Bread company's profile report.</i></p></aside>
 		<form name="calculatorForm" id="calculateProfitability" method="post">
 			<label>Profit</label>
-			<input type="text" id="profit" name="profit" value="" /> <br />
+			<input type="text" id="profit" name="profit" value="149000000" /> <br />
 			<label>Average Number of Shares</label>
-			<input type="text" id="averageNumberOfShares" name="averageNumberOfShares" value="" /> <br />
+			<input type="text" id="averageNumberOfShares" name="averageNumberOfShares" value="23890000" /> <br />
 			
 			<label>Price Per Share</label>
-			<input type="text" id="pricePerShare" name="pricePerShare" value="" /> <br />
+			<input type="text" id="pricePerShare" name="pricePerShare" value="211.64" /> <br />
 			<label>Total Assets</label>
-			<input type="text" id="totalAssets" name="totalAssets" value="" /> <br />
+			<input type="text" id="totalAssets" name="totalAssets" value="1300000000" /> <br />
 			<label>Intangible Assets</label>
-			<input type="text" id="intangibleAssets" name="intangibleAssets" value="" /> <br />
-			<label>Net Income</label>
-			<input type="text" id="netIncome" name="netIncome" value="" /> <br />
+			<input type="text" id="intangibleAssets" name="intangibleAssets" value="0" /> <br />
 			<label>Liabilities</label>
-			<input type="text" id="liabilities" name="liabilities" value="" /> <br />
+			<input type="text" id="liabilities" name="liabilities" value="898500000" /> <br />
 			
-			<label>Earnings Per Share</label>
-			<input type="text" id="earningsPerShare" name="earningsPerShare" value="" /> <br />
-			<label>Percentage Expected Growth</label>
-			<input type="text" id="percentageExpectedGrowth" name="percentageExpectedGrowth" value="" /> <br />
+			<label>Percentage Expected Growth %</label>
+			<input type="text" id="percentageExpectedGrowth" name="percentageExpectedGrowth" value="07.64" /> <br />
 			
-			<input type="button" id="calculate" name="Calculate" value="Calculate" onclick="calculateProfitability();" />
+			<button type="submit" value="Submit" onclick="calculateProfitability()">Submit</button>
+			<button type="reset" value="Reset">Reset</button>
 		</form>
 	</section>
 	
