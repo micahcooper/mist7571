@@ -23,3 +23,6 @@ table{
 tr:nth-child(even){
 	background-color:#ccc;
 }
+tr{
+	margin-bottom:5px;
+}
