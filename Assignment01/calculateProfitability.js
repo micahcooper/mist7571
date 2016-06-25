@@ -21,7 +21,7 @@ function calculateProfitability()
 	
 	priceToBook = pricePerShare / (totalAssets - (intangibleAssets + liabilities));
 	console.log("price to book - "+priceToBook+" pricePerShare,totalAssets,intangibleAssets,liabilities"+pricePerShare+" "+totalAssets+" "+intangibleAssets+" "+liabilities);
-	document.getElementById("priceToBook").innerHTML = priceToBook.toFixed(2);
+	document.getElementById("priceToBook").innerHTML = priceToBook;
 	
 	peRatio = pricePerShare / earningsPerShare;
 	console.log("PE Ratio - "+peRatio);
