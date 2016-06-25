@@ -12,8 +12,10 @@
 		<h1>Company Profitability</h1>
 	</header>
 	<section id="form">
-		<aside><p><i>Default values are based on Panera Bread company's profile report.</i></p></aside>
-		<form name="calculatorForm" id="calculateProfitability" method="post">
+		<aside>
+			<p><i>Default values are based on Panera Bread company's profile report.</i></p>
+		</aside>
+		<form name="calculatorForm" id="calculateProfitability">
 			<label>Profit</label>
 			<input type="text" id="profit" name="profit" value="149000000" /> <br />
 			<label>Average Number of Shares</label>
@@ -31,9 +33,23 @@
 			<label>Percentage Expected Growth %</label>
 			<input type="text" id="percentageExpectedGrowth" name="percentageExpectedGrowth" value="07.64" /> <br />
 			
-			<button type="submit" value="Submit" onclick="calculateProfitability()">Submit</button>
-			<button type="reset" value="Reset">Reset</button>
+			<input type="button" name="Calculate" id="Calculate" value="Calculate" onclick="calculateProfitability();"/>
+			<input type="reset" name="Reset" id="Reset" value="Reset" /> <br/>
 		</form>
+	</section>
+	
+	<section id="results" class="hide">
+		<header>
+			<h1>Results</h1>
+		</header>
+		<table>
+			<tr><th>Name of Field</th><th>Value</th></tr>
+			<tr><td>Earnings Per Share</td><td id="earningsPerShare"></td></tr>
+			<tr><td>Price to Book</td><td id="priceToBook"></td></tr>
+			<tr><td>PE Ratio</td><td id="peRatio"></td></tr>
+			<tr><td>Price to earnings growth</td><td id="priceToEarningsGrowth"></td></tr>
+			<tr><td>Return on equity</td><td id="returnOnEquity"></td></tr>
+		</table>
 	</section>
 	
 </body>
