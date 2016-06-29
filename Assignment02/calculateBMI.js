@@ -8,6 +8,6 @@ function calculateBMI()
 	height = document.getElementById("height").value;
 	age = document.getElementById("age").value;
 
-
+	document.getElementById("bmi").innerHtml = "overweight";
 	
 }
