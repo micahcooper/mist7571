@@ -1,5 +1,5 @@
 //function to calcuate the results based on a companies share and earnings report
-function calculateProfitability()
+function calculateBMI()
 {
 	console.log("starting the calculation");
 	profit = document.getElementById("profit").value;
