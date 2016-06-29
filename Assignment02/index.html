@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<script src="calculateProfitability.js"></script>
+	<link rel="stylesheet" href="style.css" />
+	<title>Company Profitability</title>
+</head>
+
+<body>
+	<header>
+		<h1>Company Profitability</h1>
+	</header>
+	<section id="form">
+		<aside>
+			<p><i>Default values are based on Panera Bread company's profile report.</i></p>
+		</aside>
+		<form name="calculatorForm" id="calculateProfitability">
+			<label>Profit</label>
+			<input type="text" id="profit" name="profit" value="149000000" /> <br />
+			<label>Average Number of Shares</label>
+			<input type="text" id="averageNumberOfShares" name="averageNumberOfShares" value="23890000" /> <br />
+			
+			<label>Price Per Share</label>
+			<input type="text" id="pricePerShare" name="pricePerShare" value="211.64" /> <br />
+			<label>Total Assets</label>
+			<input type="text" id="totalAssets" name="totalAssets" value="1300000000" /> <br />
+			<label>Intangible Assets</label>
+			<input type="text" id="intangibleAssets" name="intangibleAssets" value="0" /> <br />
+			<label>Liabilities</label>
+			<input type="text" id="liabilities" name="liabilities" value="898500000" /> <br />
+			
+			<label>Percentage Expected Growth %</label>
+			<input type="text" id="percentageExpectedGrowth" name="percentageExpectedGrowth" value="07.64" /> <br />
+			
+			<input type="button" name="Calculate" id="Calculate" value="Calculate" onclick="calculateProfitability();"/>
+			<input type="reset" name="Reset" id="Reset" value="Reset" /> <br/>
+		</form>
+	</section>
+	
+	<section id="results" class="hide">
+		<header>
+			<h1>Results</h1>
+		</header>
+		<table>
+			<tr><th>Name of Field</th><th>Value</th></tr>
+			<tr><td>Earnings Per Share</td><td id="earningsPerShare"></td></tr>
+			<tr><td>Price to Book</td><td id="priceToBook"></td></tr>
+			<tr><td>PE Ratio</td><td id="peRatio"></td></tr>
+			<tr><td>Price to earnings growth</td><td id="priceToEarningsGrowth"></td></tr>
+			<tr><td>Return on equity</td><td id="returnOnEquity"></td></tr>
+		</table>
+	</section>
+	
+</body>
+</html>
