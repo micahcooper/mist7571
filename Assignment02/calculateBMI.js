@@ -8,7 +8,7 @@ function calculateBMI()
 	height = document.getElementById("height").value;
 	age = document.getElementById("age").value;
 
-	bmi = (weight*703)/(height*12)(height*12);
+	bmi = (weight*703)/(height*12)*(height*12);
 	
 	if( bmi > 25 )
 		document.getElementById("bmi").innerHTML = "<strong>overweight</strong>";
