@@ -9,5 +9,5 @@ function calculateBMI()
 	age = document.getElementById("age").value;
 
 	document.getElementById("bmi").innerHtml = "overweight";
-	
+	console.log( document.getElementById("bmi").innerHtml );
 }
