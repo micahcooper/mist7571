@@ -1,0 +1,31 @@
+h1{
+	border-bottom:1px black solid;
+}
+input{
+	margin-bottom:5px;
+}
+input#Calculate, input#Reset{
+	margin:10px 10px 10px 0px;
+}
+section > form{
+	margin:10px;
+	width:600px;
+}
+section#form{
+	width:500px;
+	clear:both;
+	margin:20px;
+}
+
+table{
+	padding:10px;
+}
+tr:nth-child(even){
+	background-color:#ccc;
+}
+tr{
+	margin-bottom:5px;
+}
+.highlight{
+	background-color:yellow;
+}

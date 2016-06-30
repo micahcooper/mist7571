@@ -3,14 +3,18 @@ function calculateBMI()
 {
 	console.log("starting the calculation");
 
-	
 	weight = document.getElementById("weight").value;
 	height = document.getElementById("height").value;
-	age = document.getElementById("age").value;
 
-	bmi = (weight*703)/(height*12)*(height*12);
+	console.log("weight: "+weight+" height: "+height)
+	bmi = (weight*703)/(height*height);
 	
 	if( bmi > 25 )
-		document.getElementById("bmi").innerHTML = "<strong>overweight</strong>";
+		document.getElementById("overweight").style.backgroundColor += "yellow";
+		
+	document.getElementById("bmi-result").innerHTML = "<strong>"+bmi+"</strong";
+		
 	console.log( bmi );
+	
+	
 }

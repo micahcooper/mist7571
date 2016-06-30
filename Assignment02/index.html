@@ -13,34 +13,35 @@
 	</header>
 	<section id="form">
 		<aside>
-			<p><i>Default values are based on Panera Bread company's profile report.</i></p>
+			<p><i>Instructions.</i></p>
 		</aside>
 		<form name="calculatorForm" id="calculateProfitability">
 			<label>Your height in inches</label>
-			<input type="text" id="height" name="height" value="149000000" /> <br />
+			<input type="text" id="height" name="height" value="75" /> <br />
 			<label>Your weight in pounds</label>
-			<input type="text" id="weight" name="weight" value="23890000" /> <br />
+			<input type="text" id="weight" name="weight" value="220" /> <br />
 			
-			<label>Your age in years</label>
-			<input type="text" id="age" name="age" value="211.64" /> <br />
-			<label>Gender</label>
-			<input type="radio" id="genderF" name="gender" value="Female" />Female
-			<input type="radio" id="genderM" name="gender" value="Male" />Male
-
+			<br />
 			<input type="button" name="Calculate" id="Calculate" value="Calculate" onclick="calculateBMI();"/>
 			<input type="reset" name="Reset" id="Reset" value="Reset" /> <br/>
 		</form>
 	</section>
 	
-	<section id="results" class="hide">
-		<header>
-			<h1>Results</h1>
-		</header>
-		<table>
-			<tr><th>Name of Field</th><th>Value</th></tr>
-			<tr><td>BMI</td><td id="bmi"></td></tr>
-		</table>
+	<section id="section-result" class="hide">
+		<div id="bmi-result">
+
+		</div>
 	</section>
+	
+	<section>
+		<table>
+			<tr><th>Status</th><th>Range</th></tr>
+			<tr id="underweight"><td>Underweight</td><td><18.5</td></tr>
+			<tr id="normalweight"><td>Normal Weight</td><td>18.5 to 24.9</td></tr>
+			<tr id="overweight"><td>Overweight</td><td>25 to 29.9</td></tr>
+			<tr id="obesity"><td>Obesity</td><td>30 or more</td></tr>
+		</table>
+	<section>
 	
 </body>
 </html>
