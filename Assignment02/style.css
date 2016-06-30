@@ -29,3 +29,6 @@ tr{
 .highlight{
 	background-color:yellow;
 }
+.hide{
+	display:none;
+}
