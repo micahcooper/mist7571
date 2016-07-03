@@ -11,7 +11,9 @@ function calculateBMI()
 	
 	var bmi = (weight*703)/(height*height);
 
-	if( !bmi > 0 ){ 
+	//doing a quick validation test to make sure the entered values make sense
+	//largest recorded BMI appears to be 204, so I'll check against > 250
+	if( !bmi > 0 || bmi > 250 ){ 
 		document.getElementById("section-bmi").className = "";
 		document.getElementById("bmi-result").innerHTML = "<p>You entered an incorrect height or weight, please try again.</p>";
 	}
