@@ -11,6 +11,7 @@ function calculateBMI()
 	
 	var selectedRow;
 	
+	//this if block resets status table rows and highlights the appropriate status row
 	if( bmi < 18.5)
 	{
 		document.getElementById("underweight").style.backgroundColor = "yellow";
@@ -40,17 +41,18 @@ function calculateBMI()
 		document.getElementById("obesity").style.backgroundColor = "yellow";
 	}	
 	
-	document.getElementById("section-result").className = "";
-	document.getElementById("bmi-result").innerHTML = "<strong>"+bmi+"</strong";
+	document.getElementById("section-bmi").className = "";
+	document.getElementById("bmi-result").innerHTML = "<p class=\"resultp\"><strong>Your BMI - </strong>"+bmi+"</p>";
 	
 	
 	console.log( bmi );
 }
 
+//resets the displayed BMI calculation and reset the status table
 function resetBMI()
 {
 	document.getElementById("height").value = "";
-	document.getElementById("section-result").className = "hide";
+	document.getElementById("section-bmi").className = "hide";
 	
 	document.getElementById("underweight").style.backgroundColor = "";
 	document.getElementById("normalweight").style.backgroundColor = "";

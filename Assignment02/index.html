@@ -4,44 +4,55 @@
 	<meta charset="utf-8" />
 	<script src="calculateBMI.js"></script>
 	<link rel="stylesheet" href="style.css" />
-	<title>Body Mass Index</title>
+	<title>Body Mass Index Calculator</title>
 </head>
 
 <body>
 	<header>
-		<h1>Body Mass Index</h1>
+		<h1>Body Mass Index Calculator</h1>
 	</header>
-	<section id="form">
+	<section id="bmiInfo">
 		<aside>
 			<p><i>Instructions.</i></p>
 		</aside>
-		<form name="calculatorForm" id="calculateProfitability">
+		<section id="calculatorForm">
+			<header>
+				<h2>BMI Calculator Form</h2>
+			</header>
 			<label>Your height in inches</label>
-			<input type="text" id="height" name="height" value="75" /> <br />
+			<input type="text" id="height" name="height" value="1" /> <br />
 			<label>Your weight in pounds</label>
-			<input type="text" id="weight" name="weight" value="220" /> <br />
+			<input type="text" id="weight" name="weight" value="1" /> <br />
 			
 			<br />
 			<input type="button" name="Calculate" id="Calculate" value="Calculate" onclick="calculateBMI();"/>
 			<input type="reset" name="Reset" id="Reset" value="Reset" onclick="resetBMI();"/> <br/>
-		</form>
+		</section>
+		
+		<section id="bmiCategory">
+			<header>
+				<h2>BMI Category</h2>
+			</header>
+			<table>
+				<tr><th>Status</th><th>Range</th></tr>
+				<tr id="underweight"><td>Underweight</td><td><18.5</td></tr>
+				<tr id="normalweight"><td>Normal Weight</td><td>18.5 to 24.9</td></tr>
+				<tr id="overweight"><td>Overweight</td><td>25 to 29.9</td></tr>
+				<tr id="obesity"><td>Obesity</td><td>30 or more</td></tr>
+			</table>
+		</section>
 	</section>
+
+	<div class="break"></div>
 	
-	<section id="section-result" class="hide">
+	<section id="section-bmi" class="hide">
+		<header>
+			<h2>Result</h2>
+		</header>
 		<div id="bmi-result">
 
 		</div>
 	</section>
-	
-	<section>
-		<table>
-			<tr><th>Status</th><th>Range</th></tr>
-			<tr id="underweight"><td>Underweight</td><td><18.5</td></tr>
-			<tr id="normalweight"><td>Normal Weight</td><td>18.5 to 24.9</td></tr>
-			<tr id="overweight"><td>Overweight</td><td>25 to 29.9</td></tr>
-			<tr id="obesity"><td>Obesity</td><td>30 or more</td></tr>
-		</table>
-	<section>
 	
 </body>
 </html>

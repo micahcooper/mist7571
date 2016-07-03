@@ -1,34 +1,58 @@
 h1{
 	border-bottom:1px black solid;
 }
+h2{
+	border-bottom:1px blue solid;
+
+}
 input{
 	margin-bottom:5px;
 }
 input#Calculate, input#Reset{
 	margin:10px 10px 10px 0px;
 }
-section > form{
-	margin:10px;
-	width:600px;
-}
-section#form{
-	width:500px;
-	clear:both;
-	margin:20px;
-}
+
+
 
 table{
-	padding:10px;
+	
 }
-tr:nth-child(even){
+th{
+	background-color:#bcc;
+	text-align:left;
+}
+tr:nth-child(odd){
 	background-color:#ccc;
 }
-tr{
-	margin-bottom:5px;
+td{
+	padding:5px;
+}
+#calculatorForm{
+	float:left;
+	min-width:20%;
+	padding:10px;
+	clear:both;
+}
+#bmiCategory{
+	float:right;
+	padding:10px;
+}
+#bmiInfo{
+	width:80%;
+}
+#section-bmi{
+	width:40%;
+}
+.break{
+	clear:both;
 }
 .highlight{
 	background-color:yellow;
 }
 .hide{
 	display:none;
+}
+.resultp{
+	font-size:1.4em;
+	margin:5px;
 }
