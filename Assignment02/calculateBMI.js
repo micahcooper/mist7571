@@ -41,7 +41,7 @@ function calculateBMI()
 	}	
 	
 	document.getElementById("section-bmi").className = "";
-	document.getElementById("bmi-result").innerHTML = "<p class=\"resultp\"><strong>Your BMI - </strong>"+bmi.toFixed(2)+"</p>";
+	document.getElementById("bmi-result").innerHTML = "<p class=\"resultp\"><strong>Your BMI - </strong>"+bmi.toFixed(1)+"</p>";
 	
 	
 	console.log( "bmi number: "+bmi );
