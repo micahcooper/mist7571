@@ -9,20 +9,20 @@
 
 <body>
 	<header>
-		<h1>Body Mass Index Calculator</h1>
+		<h1>Cooper's Body Mass Index Calculator</h1>
 	</header>
 	<section id="bmiInfo">
 		<aside>
-			<p><i>Instructions.</i></p>
+			<p><i>Instructions - Please enter your height and weight on the form and click Calculate button.</i></p>
 		</aside>
 		<section id="calculatorForm">
 			<header>
 				<h2>BMI Calculator Form</h2>
 			</header>
 			<label>Your height in inches</label>
-			<input type="text" id="height" name="height" value="1" /> <br />
+			<input type="text" id="height" name="height" value="75" /> <br />
 			<label>Your weight in pounds</label>
-			<input type="text" id="weight" name="weight" value="1" /> <br />
+			<input type="text" id="weight" name="weight" value="220" /> <br />
 			
 			<br />
 			<input type="button" name="Calculate" id="Calculate" value="Calculate" onclick="calculateBMI();"/>
@@ -31,7 +31,7 @@
 		
 		<section id="bmiCategory">
 			<header>
-				<h2>BMI Category</h2>
+				<h2>BMI Category Table</h2>
 			</header>
 			<table>
 				<tr><th>Status</th><th>Range</th></tr>
@@ -47,7 +47,7 @@
 	
 	<section id="section-bmi" class="hide">
 		<header>
-			<h2>Result</h2>
+			<h2>Calculation Result</h2>
 		</header>
 		<div id="bmi-result">
 

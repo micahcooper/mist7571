@@ -5,13 +5,12 @@ function calculateBMI()
 
 	weight = document.getElementById("weight").value;
 	height = document.getElementById("height").value;
-
 	console.log("weight: "+weight+" height: "+height)
+	
 	bmi = (weight*703)/(height*height);
+
 	
-	var selectedRow;
-	
-	//this if block resets status table rows and highlights the appropriate status row
+	//this if-block resets status table rows and highlights the appropriate status row
 	if( bmi < 18.5)
 	{
 		document.getElementById("underweight").style.backgroundColor = "yellow";
@@ -42,16 +41,18 @@ function calculateBMI()
 	}	
 	
 	document.getElementById("section-bmi").className = "";
-	document.getElementById("bmi-result").innerHTML = "<p class=\"resultp\"><strong>Your BMI - </strong>"+bmi+"</p>";
+	document.getElementById("bmi-result").innerHTML = "<p class=\"resultp\"><strong>Your BMI - </strong>"+bmi.toFixed(2)+"</p>";
 	
 	
-	console.log( bmi );
+	console.log( "bmi number: "+bmi );
+	console.log( "calculation has ended" );
 }
 
 //resets the displayed BMI calculation and reset the status table
 function resetBMI()
 {
 	document.getElementById("height").value = "";
+	document.getElementById("weight").value = "";
 	document.getElementById("section-bmi").className = "hide";
 	
 	document.getElementById("underweight").style.backgroundColor = "";
