@@ -49,6 +49,7 @@ function calculateBMI()
 
 function resetBMI()
 {
+	document.getElementById("height").value = "";
 	document.getElementById("section-result").className = "hide";
 	
 	document.getElementById("underweight").style.backgroundColor = "";
