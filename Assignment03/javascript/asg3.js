@@ -66,15 +66,20 @@ function buildHTMLTable(books)
 		bookTable += books[i].getElementsByTagName('price')[0].firstChild.nodeValue;
 		bookTable += "</td>";
 		
-		bookTable += "<td>Sales Tax</td>";
+		bookTable += "<td>7%</td>";
 		
 		var price = books[i].getElementsByTagName('price')[0].firstChild.nodeValue;
 		bookTable += "<td>";
-		bookTable += "PRICE";
+		bookTable += "$"+(price*1.07).toFixed(2);;
 		bookTable += "</td></tr>";
 	}
 	bookTable += "</table>";
 	
 	console.log( bookTable );
 	return bookTable;
+}
+
+function calaculateTotalPrice()
+{
+	
 }
