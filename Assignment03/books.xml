@@ -1,0 +1,16 @@
+<root>
+ <books>  
+  <book>     
+    <title>Cryptonomicon</title>     
+    <author>Neal Stephenson</author>     
+    <ISBN>978-0060512804</ISBN>     
+    <price>8.99</price>
+  </book>     
+  <book>     
+    <title>American Gods</title>     
+    <author>Neil Gaiman</author>     
+    <ISBN>978-0060558123</ISBN>
+    <price>10.17</price>    
+  </book>     
+ </books>
+</root>
