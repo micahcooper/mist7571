@@ -20,24 +20,70 @@
 		<p>
 			<label>Enter a set of number separated by commas</label><br />
 			<textarea class="form-control" id="numberSet" name="numberSet" value="" /></textarea>
-			<input type="button" class="btn" value="Calculate Average" onclick="">
+			<input type="button" class="btn" value="Calculate Average" onclick="runAverageForm();">
 		</p>
+		<div id="calcAverage"></div>
+		<div id="calcMessage"></div>
 	</section>
 	
 	<section class="container card" id="">
 		<header>
 			<h2>Question 1.2</h2>
 		</header>
+		<p>This list will be sorted based on the first name.</p>
 		<p>
 			<ol>
 				<li><span id=2>John Goodman</span></li>
 				<li><span id=3>Will Smith</span></li>
 				<li><span id=4>John Cusack</span></li>
+				<li><span id=4>David Spade</span></li>
 			</ol>
 			<input type="button" class="btn" value="Sort Asceding" onclick="sortAsc();">
 			<input type="button" class="btn" value="Sort Descending" onclick="sortDesc();">
 		</p>
 		<script>
+			function runAverageForm()
+			{
+				var average = calculateAverage( document.getElementById('numberSet').value );
+				console.log( average );
+				if(average)
+				{
+					console.log("here");
+					document.getElementById("calcAverage").innerHTML = "<p>Last calculated average: "+average+"</p>";
+				}
+			}
+			function calculateAverage(stringObj)
+			{
+				var myString = "";
+				var message = "";
+				var counter = 0;
+				console.log( stringObj );
+				
+				var numberArray = stringObj.split(',');
+				console.log( numberArray );
+				
+				//make sure we have some input
+				if(numberArray.length > 0)
+				{
+					var total = 0;
+					for(var i=0; i<numberArray.length; i++)
+					{
+						//make sure, for each input, that it is a number
+						if(!isNaN(parseFloat(numberArray[i])) && isFinite(numberArray[i]))
+						{
+							total += parseInt(numberArray[i]);
+							counter++;
+						}
+						else
+							document.getElementById("calcMessage").innerHTML = "<p><strong>Note:</strong> A non-numeric value was detected.  Average results may not be accurate.</p>";
+					}
+					//console.log( total );
+					
+					return total / counter;
+				}
+				
+				return null;
+			}
 			function sortAsc()
 			{
 				var mySpans = document.getElementsByTagName("span");
@@ -76,7 +122,7 @@
 				}
 				
 				//change the order
-				mySpanIds.reverse();
+				mySpanIds.sort(function(a,b){return b-a});
 				console.log( mySpanIds );
 				
 				//put them back into the span tags in an ordered format
@@ -94,6 +140,6 @@
 		</div>
 	</footer>
 
-	<script>$(document).ready();</script>
+	<script></script>
 </body>
 </html>
