@@ -4,6 +4,7 @@ function readyToGo()
 	readBooks();
 }
 
+//read the books file
 function readBooks()
 {
 	var httpRequest = null;
@@ -22,7 +23,7 @@ function readBooks()
 	httpRequest.onreadystatechange = function()
 	{
 		console.log("we are request ready");
-		if( httpRequest.readyState === 4)
+		if( httpRequest.readyState === 4 && httpRequest.status === 200)
 		{
 			var booksXML = httpRequest.responseXML;
 			var books = booksXML.documentElement.getElementsByTagName("book");
@@ -37,11 +38,12 @@ function readBooks()
 	console.log( httpRequest );
 }
 
+//build the table to attach to the table based on the books found
 function buildHTMLTable(books)
 {
 	var bookTable = "";
 	
-	bookTable += "<table class='table'>";
+	bookTable += "<table class='table table-striped'>";
 	bookTable += "<thead class='thead-inverse'><tr><th>Title</th><th>Author</th><th>Publisher</th><th>ISBN</th><th>Price</th><th>Sales Tax</th><th>Total Cost</th></tr></thead>";
 	
 	for(var i=0; i<books.length; i++)
@@ -77,9 +79,4 @@ function buildHTMLTable(books)
 	
 	console.log( bookTable );
 	return bookTable;
-}
-
-function calaculateTotalPrice()
-{
-	
 }
