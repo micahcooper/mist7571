@@ -11,7 +11,7 @@
 		table{border:1px solid black;}
 		#hideme{display:none;}
 		.message{color:red;}
-		.result{display:flex;}
+		#hideme section{padding:15px;}
 	</style>
 </head>
 
@@ -63,7 +63,7 @@
 			if(localStorage.getItem('coopersFlyerMiles'))
 			{
 				//remove display:none style from result section
-				document.getElementById('hideme').style.display="block";
+				document.getElementById('hideme').style.display="flex";
 				//attach the built table to the result section
 				myResults.innerHTML = buildTable(JSON.parse(localStorage.getItem('coopersFlyerMiles')));
 				myMembership.innerHTML = '<p>'+calculateMembership()+'</p>';
@@ -183,11 +183,11 @@
 			}
 			
 			if(points < 10000)
-				return "Bronze";
+				return '<span style="color:#c63;font-size:2em;">Bronze</span>';
 			if(points > 10000 && points < 25000)
-				return "Silver";
+				return '<span style="color:#c0c0c0;font-size:2em;">Silver</span>';
 			if(points > 25000)
-				return "Gold";
+				return '<span style="color:#ffd700;font-size:2em;">Gold</span>';
 		}
 	</script>
 </body>
