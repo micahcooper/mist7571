@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>Cooper's Frequent Flier Miles</title>
+	<style>
+		input{margin:10px;}
+		h1{border-bottom:1px solid black;}
+		#hideme{display:none;}
+		.message{color:red;}
+	</style>
+</head>
+
+<body>
+	<header>
+		<h1>Cooper's Frequent Flier Miles</h1>
+	</header>
+	
+	<section class="container">
+		<section id="pageMessage"></section>
+	</section>
+	
+	<section class="container">
+		<section class="">
+			<label>Flight Number</label>
+			<input type="text" id="flightNumber" name="flightNumber" value="" /> <br />
+			<label>Number of miles flown</label>
+			<input type="text" id="flightMiles" name="flightMiles" value="" /> <br />
+			
+			<input type="button" name="recordFlight" id="recordFlight" value="Record Flight" onclick="recordFrequentFlyerMiles();"/>
+		</section>
+		<section class="">
+			<header>
+				<h2 id="myHeader2"></h2>
+				<p id="myResults"></p>
+			</header>
+		</section>
+	</section>
+	
+	<section class="container">
+		<section id="hideme">
+			<header>
+				<h2>Frequent Flier Miles Totals</h2>
+			</header>
+			<section id="resultsTable"></section>
+		</section>
+	</section>
+	<script>
+		function recordFrequentFlyerMiles()
+		{
+			console.log( "record function" );
+			
+			//obtain the values from the form
+			var flightNumber = document.getElementById('flightNumber').value;
+			var flightMiles = document.getElementById('flightMiles').value;
+			
+			//grab the page elements that may be needed
+			var myMessage = document.getElementById('pageMessage');
+			var myResults = document.getElementById('resultsTable');
+			
+			//create variable to hold data
+			var flyerMilesJSON = [];
+			
+			//clear or refresh certain elements
+			myMessage.innerHTML = '';
+			
+			//check to make sure both values are entered
+			if(flightNumber && flightMiles)
+			{
+				var newEntry = JSON.stringify({'flightNumber':flightNumber,'milesFlown': flightMiles});
+
+				flyerMilesJSON.push( JSON.parse(newEntry) );
+				
+				console.log( flyerMilesJSON );
+				
+				myResults.innerHTML = buildTable(flyerMilesJSON);
+				
+				saveFlyerMilesTable();
+			}
+			else
+			{
+				myMessage.innerHTML = "<p class='message'><strong>Please enter a flight number and number of miles flown.</strong></p>"
+			}
+		}
+		function buildTable(flyerMilesJSON)
+		{
+			console.log("build table");
+			var mySection = document.getElementById('hideme');
+			var myTable = '';
+			mySection.style.display="block";
+			
+			myTable += '<table>';
+			myTable += '<tr><th>Flight Number</th><th>Number of Miles Flown</th></tr>';
+			for(var i=0; i<flyerMilesJSON.length; i++)
+			{
+				myTable += '<tr><td>result</td></tr>';
+			}
+			myTable += '</table>';
+			
+			return myTable;
+			
+		}
+		function saveFlyerMilesTable()
+		{
+			console.log('save frequent flier miles table');
+		}
+	</script>
+</body>
+</html>
