@@ -66,7 +66,7 @@
 				document.getElementById('hideme').style.display="block";
 				//attach the built table to the result section
 				myResults.innerHTML = buildTable(JSON.parse(localStorage.getItem('coopersFlyerMiles')));
-				myMembership.innerHTML = '<p>'+calculateMembership()+'</p>'
+				myMembership.innerHTML = '<p>'+calculateMembership()+'</p>';
 			}
 		}
 		function recordFrequentFlyerMiles()
@@ -80,6 +80,7 @@
 			//grab the page elements that may be needed
 			var myMessage = document.getElementById('pageMessage');
 			var myResults = document.getElementById('resultsTable');
+			var myMembership = document.getElementById('membership');
 			
 			//create variable to hold data
 			var flyerMilesJSON = [];
@@ -106,8 +107,10 @@
 					document.getElementById('hideme').style.display="block";
 					//attach the built table to the result section
 					myResults.innerHTML = buildTable(flyerMilesJSON);
+					
 					//save the data the local storage
 					saveFlyerMilesTable(flyerMilesJSON);
+					myMembership.innerHTML = '<p>'+calculateMembership()+'</p>';
 				}
 				else
 					myMessage.innerHTML = "<p class='message'><strong>You have entered a flight number that already exists.  This is not an acceptable input.</strong></p>"
@@ -153,19 +156,16 @@
 			
 			return false;
 		}
+		
+		//save date to the local storage
 		function saveFlyerMilesTable(flyerMilesJSON)
 		{
 			console.log('save frequent flier miles table');
-			//if the storage does not already exist we can goahead and save it, else append to exisitng data
-			if(!localStorage.getItem('coopersFlyerMiles'))
-				localStorage.setItem('coopersFlyerMiles', JSON.stringify(flyerMilesJSON));
-			else
-			{
-				var alreadyStored = JSON.parse(localStorage.getItem('coopersFlyerMiles'));
-				alreadyStored = alreadyStored.concat(flyerMilesJSON);
-				localStorage.setItem('coopersFlyerMiles', JSON.stringify(alreadyStored));
-			}
+			localStorage.setItem('coopersFlyerMiles', JSON.stringify(flyerMilesJSON));
+
 		}
+		
+		//calculate the membership based on flown miles
 		function calculateMembership()
 		{
 			console.log("calculate membership");
