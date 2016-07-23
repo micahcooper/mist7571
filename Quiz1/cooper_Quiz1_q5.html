@@ -1,32 +1,52 @@
-﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html><head></head><body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>Cooper's Bill Calculator</title>
+	<style>
+		input{margin:10px;}
+		h1{border-bottom:1px solid black;}
+		.floatLeft{float:left;}
+		.marginLeft30{margin-left:30px;}
+	</style>
+</head>
 
-
-	
-	
-	
-
-
-
+<body>
 	<header>
-		<h1>Cooper&#39;s Bill Calculator</h1>
+		<h1>Cooper's Bill Calculator</h1>
 	</header>
 	
 	<section class="floatLeft">
 		<label>Total Bill Amount</label>
-		 <br/>
+		<input type="text" id="billTotal" name="billTotal" value="" /> <br />
 		<label>Tip Amount (percentage) %</label>
-		 <br/>
+		<input type="text" id="tip" name="tip" value="" /> <br />
 		<label>Number of dinner guests</label>
-		 <br/>
+		<input type="text" id="dinnerGuests" name="dinnerGuests" value="" /> <br />
 		
-		
+		<input type="button" name="Calculate" id="Calculate" value="Calculate" onclick="calculateBill();"/>
 	</section>
 	<section class="floatLeft marginLeft30">
 		<header>
-			<h2></h2>
-			<p></p>
+			<h2 id="billResultH2"></h2>
+			<p id="billResultP"></p>
 		</header>
 	</section>
-	
-
-<script type="text/javascript">D2LMathML.DesktopInit('https://s.brightspace.com/lib/mathjax/2.6.1/MathJax.js?config=MML_HTMLorMML','https://s.brightspace.com/lib/mathjax/2.6.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML');</script></body></html>
+	<script>
+		function calculateBill()
+		{
+			console.log( "hi" );
+			var billTotal = document.getElementById( "billTotal" ).value;
+			var tipAmount = document.getElementById( "tip" ).value;
+			var guestAmount = document.getElementById( "dinnerGuests" ).value;
+			
+			var billAndTip = billTotal * ( 1 + (tipAmount / 100) );
+			var billPerPerson = billAndTip / guestAmount;
+			console.log( billAndTip+" "+billPerPerson );
+			
+			document.getElementById( "billResultH2" ).innerText = "Your Results";
+			document.getElementById( "billResultP" ).innerHTML = "Total Bill: $"+billAndTip.toFixed(2)+"<br />Amount Owed Per Person: $"+billPerPerson.toFixed(2);
+		}
+	</script>
+</body>
+</html>
