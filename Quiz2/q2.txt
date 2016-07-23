@@ -1,0 +1,9 @@
+Complete the script in the html file provided to read from the attached json file to populate the specific IDs with the content present under the specific JSON keys. i.e. the data of the JSON key “title” will be the HTML content of the title ID and the data of the JSON key “text” will be the HTML content of the text ID.
+
+The starting code for this part of the quiz is already provided at the following location
+
+The JSON file is at http://people.terry.uga.edu/nikhil/format.json
+
+The incomplete HTML file is at http://people.terry.uga.edu/nikhil/quiz2_3.html
+
+You can download the files to work on them. One suggestion is that while testing your code, you may prefer the use of Firefox instead of the Chrome browser for this question as Chrome brings up errors associated with Cross-domain file access.
