@@ -1,0 +1,11 @@
+Create a single webpage for logging flights and determines if the user is a Bronze, Silver or Gold class member based on the distance flown in the flights they have taken. You are to take as input a flight number (Flight number text input) and the number of miles (flight miles’ text input) flown in the flight that are to be submitted using a button.
+
+Write a script that takes the two inputs and stores the two inputs in an array. Make sure that a sure cannot enter 2 flights that have the same flight number and present a message to the user if they do that.
+
+The same web page should display the inputted flight information in a tabular format after the user adds the flight. Class of the passenger is based on the total miles flown.
+
+Bronze member < 10000 miles flown.
+
+Silver member < 25000 miles flown
+
+Gold member > 25000 miles flown
