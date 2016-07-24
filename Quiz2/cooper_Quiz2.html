@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>Cooper's Frequent Flier Miles</title>
+	<style>
+		input{margin:10px;}
+		h1{border-bottom:1px solid black;}
+		td{padding:10px;}
+		th{padding-right:30px;}
+		table{border:1px solid black;}
+		#hideme{display:none;}
+		.message{color:red;}
+		#hideme section{padding:15px;}
+	</style>
+</head>
+
+<body>
+	<header>
+		<h1>Cooper's Frequent Flier Miles</h1>
+	</header>
+	
+	<section class="container">
+		<section id="pageMessage"></section>
+	</section>
+	
+	<section class="container">
+		<section class="">
+			<label>Flight Number</label>
+			<input type="text" id="flightNumber" name="flightNumber" value="" /> <br />
+			<label>Number of miles flown</label>
+			<input type="text" id="flightMiles" name="flightMiles" value="" /> <br />
+			
+			<input type="button" name="recordFlight" id="recordFlight" value="Record Flight" onclick="recordFrequentFlyerMiles();"/>
+		</section>
+	</section>
+	
+	<section class="container" id="hideme">
+		<section>
+			<header>
+				<h2>Frequent Flier Miles Totals</h2>
+			</header>
+			<section id="resultsTable"></section>
+		</section>
+		<section>
+			<header>
+				<h2>Membership Standing</h2>
+			</header>
+			<section id="membership"></section>
+		</section>
+	</section>
+	<script>
+		loadApplication();
+		
+		function loadApplication()
+		{
+			console.log('load Application');
+			//grab the page elements that may be needed
+			var myMessage = document.getElementById('pageMessage');
+			var myResults = document.getElementById('resultsTable');
+			var myMembership = document.getElementById('membership');
+			
+			if(localStorage.getItem('coopersFlyerMiles'))
+			{
+				//remove display:none style from result section
+				document.getElementById('hideme').style.display="flex";
+				//attach the built table to the result section
+				myResults.innerHTML = buildTable(JSON.parse(localStorage.getItem('coopersFlyerMiles')));
+				myMembership.innerHTML = '<p>'+calculateMembership()+'</p>';
+			}
+		}
+		function recordFrequentFlyerMiles()
+		{
+			console.log( "record function" );
+			
+			//obtain the values from the form
+			var flightNumber = document.getElementById('flightNumber').value;
+			var flightMiles = document.getElementById('flightMiles').value;
+			
+			//grab the page elements that may be needed
+			var myMessage = document.getElementById('pageMessage');
+			var myResults = document.getElementById('resultsTable');
+			var myMembership = document.getElementById('membership');
+			
+			//create variable to hold data
+			var flyerMilesJSON = [];
+			if(localStorage.getItem('coopersFlyerMiles'))
+			{
+				flyerMilesJSON = JSON.parse(localStorage.getItem('coopersFlyerMiles'));
+			}
+			
+			//clear or refresh certain elements
+			myMessage.innerHTML = '';
+			
+			//check to make sure both values are entered
+			if(flightNumber && flightMiles)
+			{
+				console.log( checkForDuplicateFlightNumber(flightNumber) );
+				//check for a duplicated flight number
+				if( !checkForDuplicateFlightNumber(flightNumber) )
+				{
+					var newEntry = JSON.stringify({'flightNumber':flightNumber,'milesFlown': flightMiles});
+
+					flyerMilesJSON.push( JSON.parse(newEntry) );
+					
+					//remove display:none style from result section
+					document.getElementById('hideme').style.display="block";
+					//attach the built table to the result section
+					myResults.innerHTML = buildTable(flyerMilesJSON);
+					
+					//save the data the local storage
+					saveFlyerMilesTable(flyerMilesJSON);
+					myMembership.innerHTML = '<p>'+calculateMembership()+'</p>';
+				}
+				else
+					myMessage.innerHTML = "<p class='message'><strong>You have entered a flight number that already exists.  This is not an acceptable input.</strong></p>"
+			}
+			else
+				myMessage.innerHTML = "<p class='message'><strong>Please enter a flight number and number of miles flown.</strong></p>";
+		}
+		function buildTable(flyerMilesJSON)
+		{
+			console.log("build table");
+			
+			var myTable = '';
+
+			myTable += '<table>';
+			myTable += '<tr><th>Flight Number</th><th>Number of Miles Flown</th></tr>';
+			for(var i=0; i<flyerMilesJSON.length; i++)
+			{
+				myTable += '<tr><td>'+flyerMilesJSON[i].flightNumber+'</td><td>'+flyerMilesJSON[i].milesFlown+'</td></tr>';
+			}
+			myTable += '</table>';
+			
+			return myTable;
+			
+		}
+		//function to check for duplicates that may have already been submitted
+		function checkForDuplicateFlightNumber(flightNumber)
+		{
+			console.log("check for duplicates");
+			var flyerMilesFromStorage;
+			
+			//retrieve from local storage an existing set of data, if non then just return false
+			if(localStorage.getItem('coopersFlyerMiles'))
+				flyerMilesFromStorage = JSON.parse(localStorage.getItem('coopersFlyerMiles'));
+			else
+				return false;
+			
+			//loop through the return objects to check for a match on the flight number
+			for(var i=0; i<flyerMilesFromStorage.length; i++)
+			{
+				if(flyerMilesFromStorage[i].flightNumber === flightNumber)
+					return true;
+			}
+			
+			return false;
+		}
+		
+		//save date to the local storage
+		function saveFlyerMilesTable(flyerMilesJSON)
+		{
+			console.log('save frequent flier miles table');
+			localStorage.setItem('coopersFlyerMiles', JSON.stringify(flyerMilesJSON));
+
+		}
+		
+		//calculate the membership based on flown miles
+		function calculateMembership()
+		{
+			console.log("calculate membership");
+			var myEntries;
+			var points = 0;
+			
+			if(localStorage.getItem('coopersFlyerMiles'))
+			{
+				myEntries = JSON.parse(localStorage.getItem('coopersFlyerMiles'));
+				
+				for(var i=0; i<myEntries.length; i++)
+				{
+					points += parseInt(myEntries[i].milesFlown);
+				}
+			}
+			
+			if(points < 10000)
+				return '<span style="color:#c63;font-size:2em;">Bronze</span>';
+			if(points > 10000 && points < 25000)
+				return '<span style="color:#c0c0c0;font-size:2em;">Silver</span>';
+			if(points > 25000)
+				return '<span style="color:#ffd700;font-size:2em;">Gold</span>';
+		}
+	</script>
+</body>
+</html>
