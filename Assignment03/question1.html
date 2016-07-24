@@ -122,7 +122,8 @@
 				}
 				
 				//change the order
-				mySpanIds.sort(function(a,b){return b-a});
+				mySpanIds.sort();
+				mySpanIds.reverse();
 				console.log( mySpanIds );
 				
 				//put them back into the span tags in an ordered format
