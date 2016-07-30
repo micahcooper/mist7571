@@ -2,9 +2,17 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8" />
-	<title>Hidden Gem</title>
+	<link rel="icon" href="favicon.png">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" />
+	<title>The Hidden Gem</title>
 	<style>
-		#gameBoard{border:1px solid black;}
+		footer {display:block;clear:both;}
+		#gameBoard {border:0px solid black;}
+		#inputForm {}
+		.gameBoardRow {clear:both;}
+		.gameSquare {border:1px solid blue;float:left;height:5rem;margin:2px;width:5rem;}
+		.icon {position:relative;text-align:center;top:40%;width:100%}
+		.row {padding:5px;display:block;}
 	</style>
 </head>
 <body>
@@ -15,31 +23,83 @@
 		<div id="gameTime"></div>
 	</nav>
 	<header id="page-header">
-        	<h1 class="display-3">Hidden Gems</h1>
+        	<h1 class="display-3">Hidden Gem</h1>
 	</header>
 
-	<section class="container">
+	<section class="row">
 		<section class="card" id="">
 			<header class="card-header">
-				<h2>Found the Hidden Gem Before Time Runs Out</h2>
+				<h2>Found the Hidden Gem Before Time Runs Out (just kidding there's no timer in this version)</h2>
 			</header>
 			<div class="card-block">
 				<p class="card-text">In this game the player has to find a hidden gem in a 3 by 3 grid. When the page is loaded the gem is randomly placed in the grid (but not shown to the player). The player must make a guess between 1 and 9 with the grid cells numbered from 1 in the upper left, and going across each row with 9 in the lower right. When the player makes an incorrect guess the spot in the grid is marked with an “O” and a message “Try again” is displayed. The player continues to guess until the gem location is found. When the gem is found an “X” is placed in that spot and a message is displayed congratulating the player. Also, if the player inputs an invalid number for cell a message is displayed correcting them. A player can also reset the board by clicking a button “Clear”.</p>
 			</div>
 		</section>
 		
-		<section class="card" id="">
-			<div class="card-block">
+		<section class="" id="">
+			<div class="">
 				<div id='gameBoard'></div>
+			</div>
+			<div id="inputForm">
+				<input type="text">
+				<button>Guess!</button>
 			</div>
 		</section>
 	</section>
-	<footer class="footer bg-info">
-		<div class="container">
+	<footer class="footer">
+		<div class="">
 			<small class="text-primary">&copy; The Hidden Gem</small>
 		</div>
 	</footer>
 
-	<script>$(document).ready(loadApplication());</script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+	<script>
+		var gem;
+		function newGem(size)
+		{
+			console.log('new game');
+			var setPos = Math.floor( Math.random() * size) + 1;
+			console.log( setPos );
+			return setPos;
+		}
+		function buildGameBoard(size)
+		{
+			console.log('build game board');
+			
+			var gameBoardDiv = jQuery('#gameBoard');
+			var colSize = Math.sqrt(size);
+			var rowSize = Math.sqrt(size);
+			var gameBoard = '';
+			var counter = 1;
+			
+			for(var row=0; row<rowSize; row++)
+			{
+				gameBoard += '<div class="gameBoardRow">';
+				for(var col=0; col<colSize; col++)
+				{
+					gameBoard += '<div id="'+ counter++ +'" class="gameSquare" onclick="checkGuessClick(this.id)"></div>';
+				}
+				gameBoard += '</div>';
+				gameBoard += "<br />";
+			}
+			
+			gameBoardDiv.append( gameBoard );
+			
+			gem = newGem(size);
+		}
+		function checkGuessClick( guess )
+		{
+			console.log('check guess');
+			console.log( guess );
+			var gamePiece = '#'+guess;
+			//console.log( jQuery(gamePiece) );
+			
+			if( guess == gem )
+				jQuery(gamePiece).html('<div class="icon"><i class="fa fa-diamond" aria-hidden="true"></i></span>');
+			else
+				jQuery(gamePiece).html('<div class="icon"><i class="fa fa-times" aria-hidden="true"></i></span>');
+		}
+	</script>
+	<script>$(document).ready( buildGameBoard(9) );</script>
 </body>
 </html>
