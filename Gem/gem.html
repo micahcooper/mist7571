@@ -7,7 +7,7 @@
 	<title>The Hidden Gem</title>
 	<style>
 		footer {display:block;clear:both;}
-		#gameBoard {border:0px solid black;}
+		#gameBoard {float:left;margin:0 3rem 1rem 3rem;}
 		#inputForm {}
 		.gameBoardRow {clear:both;}
 		.gameSquare {border:1px solid blue;float:left;height:5rem;margin:2px;width:5rem;}
@@ -32,8 +32,9 @@
 			<div class="" style="float:left;">
 				<div id="gameBoard"></div>
 			</div>
-			<div style="float:left;padding-left:10px;">
+			<div style="border:1px solid black;float:left;padding:10px;">
 				<div id="inputForm" style="">
+					<label>Place your guess below:</label><br />
 					<input type="text" id="inputGuess"><br />
 					<button onclick="checkGuessButton()">Guess!</button>
 					<button onclick="clearGameBoard(9)">Clear</button>
@@ -144,6 +145,7 @@
 			{
 				jQuery('#'+i).html(i);
 			}
+			jQuery('#message').html('');
 			
 			newGem(size);
 			
