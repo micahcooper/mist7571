@@ -53,6 +53,9 @@
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 	<script>
+		//I have place a size variable throught to extend the game later. so, game boards of various sizes can be played
+		
+		//global variable for the gem
 		var gem;
 		
 		//returns the gem position based on the number of squares on the board, for final this is just 9
@@ -72,8 +75,10 @@
 			var colSize = Math.sqrt(size);
 			var rowSize = Math.sqrt(size);
 			var gameBoard = '';
+			//using a counter to id the game board pieces, later used to match guesses to gem position
 			var counter = 1;
 			
+			//build the game board using two for loops for rows, then columns
 			for(var row=0; row<rowSize; row++)
 			{
 				gameBoard += '<div class="gameBoardRow">';
@@ -85,10 +90,17 @@
 				gameBoard += "<br />";
 			}
 			
+			//attach the board via jQuery and DOM manipulation
 			gameBoardDiv.append( gameBoard );
 			
+			//generate the gem position
 			newGem(size);
 		}
+		
+		/*
+			this is an extra functionality for the assignment, i have added click events to the game board divs.
+			it uses Font Awesome icons.
+		*/
 		function checkGuessClick( guess )
 		{
 			console.log('check guess click');
@@ -108,7 +120,7 @@
 			}
 		}
 		
-		//function per the final specifications, take input from text box
+		//function per the final specifications, take input from text box, does not use Font Awesome icons
 		function checkGuessButton( guess )
 		{
 			console.log('check guess button');
@@ -139,6 +151,7 @@
 			}
 		}
 		
+		//this function resets the gameboard and clears the game message and generates a new gem
 		function clearGameBoard(size)
 		{
 			for(var i=0; i<=size; i++)
