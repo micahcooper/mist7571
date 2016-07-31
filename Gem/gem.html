@@ -78,7 +78,7 @@
 				gameBoard += '<div class="gameBoardRow">';
 				for(var col=0; col<colSize; col++)
 				{
-					gameBoard += '<div id="'+ counter++ +'" class="gameSquare" onclick="checkGuessClick(this.id)">'+counter+'</div>';
+					gameBoard += '<div id="'+ counter +'" class="gameSquare" onclick="checkGuessClick(this.id)">'+ counter++ +'</div>';
 				}
 				gameBoard += '</div>';
 				gameBoard += "<br />";
@@ -145,7 +145,8 @@
 				jQuery('#'+i).html('');
 			}
 			
-			newGem(size);
+			buildGameBoard(size);
+			
 		}
 	</script>
 	<script>$(document).ready( buildGameBoard(9) );</script>
