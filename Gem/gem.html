@@ -58,9 +58,9 @@
 		function newGem(size)
 		{
 			console.log('new game');
-			var setPos = Math.floor( Math.random() * size) + 1;
+			gem = Math.floor( Math.random() * size) + 1;
 			console.log( setPos );
-			return setPos;
+			return gem;
 		}
 		
 		//the size variable will allow for bigger gameboards in later editions
@@ -87,7 +87,7 @@
 			
 			gameBoardDiv.append( gameBoard );
 			
-			gem = newGem(size);
+			newGem(size);
 		}
 		function checkGuessClick( guess )
 		{
