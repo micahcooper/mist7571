@@ -119,22 +119,23 @@
 			var gamePiece = '#'+guess;
 			//console.log( jQuery(gamePiece) );
 			
-			if(guess < 1 || guess > 9)
-			{
-				jQuery('#message').html('<p>Please enter a number between 1 and 9.</p>');
-			}
-			else
+			
+			if(guess > 0 || guess < 10 )
 			{
 				if( guess == gem )
 				{
 					jQuery(gamePiece).html('<div class="icon">X</span>');
-					jQuery('#message').html('<p>Correct guess</p>');
+					jQuery('#message').html('<p>Correct guess.  Congratulations.</p>');
 				}
 				else
 				{
 					jQuery(gamePiece).html('<div class="icon">O</span>');
-					jQuery('#message').html('<p>Wrong guess</p>');
+					jQuery('#message').html('<p>Try again.</p>');
 				}
+			}
+			else
+			{
+				jQuery('#message').html('<p>Please enter a number between 1 and 9.</p>');
 			}
 		}
 		
